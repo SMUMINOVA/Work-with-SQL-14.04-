@@ -19,13 +19,13 @@ namespace HW_15_04
             int n = int.Parse(Console.ReadLine());
             SCommands firstEnter = new SCommands();
             for (int i = 0; i < n; i++){
-                System.Console.Write($"Please enter Firstname of your {++i} friend: ");
+                System.Console.Write($"Please enter Firstname of your friend: ");
                 firstEnter.FirstName = Console.ReadLine();
-                System.Console.Write($"Please enter Middlename of your {++i} friend: ");
+                System.Console.Write($"Please enter Middlename of your friend: ");
                 firstEnter.MiddleName = Console.ReadLine();
-                System.Console.Write($"Please enter Lastname of your {++i} friend: ");
+                System.Console.Write($"Please enter Lastname of your friend: ");
                 firstEnter.LastName = Console.ReadLine();
-                System.Console.Write($"Please enter date of birth of your {++i} friend(yyyy-mm-dd hh:mm:ss): ");
+                System.Console.Write($"Please enter date of birth of your friend(yyyy-mm-dd hh:mm:ss): ");
                 firstEnter.BirthDate = Console.ReadLine();
                 firstEnter.insertSCommand();
             }
@@ -215,5 +215,9 @@ namespace HW_15_04
                     System.Console.WriteLine("Delete command successfull!!!");
                 }
             }
+
+
+
+            // в строке var result = command.ExecuteNonQuery();  оператор var дает ошибку при компиляции
     }
 }
