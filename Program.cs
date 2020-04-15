@@ -22,6 +22,8 @@ namespace HW_15_04
             public string FirstName {get; set;}
             public string MiddleName {get; set;}
             public string BirthDate{get; set;}
+            public string key {get; set;}
+            public string choiceKey{get; set;}
             
             public void insertSCommand(){
                 const string conString = @"Data source=localhost; Initial catalog = Test; user id = sa;password=S1806Kh2111";
@@ -63,11 +65,11 @@ namespace HW_15_04
                 reader.Close();
                 }
             
-            public void updateLastNameById(){
+            public void updateLastName(){
                 const string conString = @"Data source=localhost; Initial catalog = Test; user id = sa;password=S1806Kh2111";
                 SqlConnection scon = new SqlConnection(conString);
                 scon.Open();
-                string insertSqlCommand = string.Format($"update Person set LastName = {LastName} where id = {Id}");
+                string insertSqlCommand = string.Format($"update Person set LastName = {LastName} where {choiceKey} = {key}");
                 SqlCommand command = new SqlCommand(insertSqlCommand, scon);
                 var result = command.ExecuteNonQuery();
                 if (result > 0)
@@ -75,11 +77,11 @@ namespace HW_15_04
                     System.Console.WriteLine("Update command successfull!!!");
                 }
             }
-            public void updateMiddleNameById(){
+            public void updateMiddleName(){
                 const string conString = @"Data source=localhost; Initial catalog = Test; user id = sa;password=S1806Kh2111";
                 SqlConnection scon = new SqlConnection(conString);
                 scon.Open();
-                string insertSqlCommand = string.Format($"update Person set LastName = {LastName} where id = {Id}");
+                string insertSqlCommand = string.Format($"update Person set MiddleName = {MiddleName} where {choiceKey} = {key}");
                 SqlCommand command = new SqlCommand(insertSqlCommand, scon);
                 var result = command.ExecuteNonQuery();
                 if (result > 0)
@@ -87,7 +89,30 @@ namespace HW_15_04
                     System.Console.WriteLine("Update command successfull!!!");
                 }
             }
-        
+            public void updateFirstName(){
+                const string conString = @"Data source=localhost; Initial catalog = Test; user id = sa;password=S1806Kh2111";
+                SqlConnection scon = new SqlConnection(conString);
+                scon.Open();
+                string insertSqlCommand = string.Format($"update Person set FirstleName = {FirstName} where {choiceKey} = {key}");
+                SqlCommand command = new SqlCommand(insertSqlCommand, scon);
+                var result = command.ExecuteNonQuery();
+                if (result > 0)
+                {
+                    System.Console.WriteLine("Update command successfull!!!");
+                }
+            }
+            public void updateBirthDate(){
+                const string conString = @"Data source=localhost; Initial catalog = Test; user id = sa;password=S1806Kh2111";
+                SqlConnection scon = new SqlConnection(conString);
+                scon.Open();
+                string insertSqlCommand = string.Format($"update Person set BirthDate = {BirthDate} where {choiceKey} = {key}");
+                SqlCommand command = new SqlCommand(insertSqlCommand, scon);
+                var result = command.ExecuteNonQuery();
+                if (result > 0)
+                {
+                    System.Console.WriteLine("Update command successfull!!!");
+                }
+            }
         }
     }
 }
