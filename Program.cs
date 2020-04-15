@@ -62,6 +62,31 @@ namespace HW_15_04
                 }
                 reader.Close();
                 }
+            
+            public void updateLastNameById(){
+                const string conString = @"Data source=localhost; Initial catalog = Test; user id = sa;password=S1806Kh2111";
+                SqlConnection scon = new SqlConnection(conString);
+                scon.Open();
+                string insertSqlCommand = string.Format($"update Person set LastName = {LastName} where id = {Id}");
+                SqlCommand command = new SqlCommand(insertSqlCommand, scon);
+                var result = command.ExecuteNonQuery();
+                if (result > 0)
+                {
+                    System.Console.WriteLine("Update command successfull!!!");
+                }
+            }
+            public void updateMiddleNameById(){
+                const string conString = @"Data source=localhost; Initial catalog = Test; user id = sa;password=S1806Kh2111";
+                SqlConnection scon = new SqlConnection(conString);
+                scon.Open();
+                string insertSqlCommand = string.Format($"update Person set LastName = {LastName} where id = {Id}");
+                SqlCommand command = new SqlCommand(insertSqlCommand, scon);
+                var result = command.ExecuteNonQuery();
+                if (result > 0)
+                {
+                    System.Console.WriteLine("Update command successfull!!!");
+                }
+            }
         
         }
     }
