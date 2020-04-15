@@ -113,6 +113,18 @@ namespace HW_15_04
                     System.Console.WriteLine("Update command successfull!!!");
                 }
             }
+            public void Delete(){
+                const string conString = @"Data source=localhost; Initial catalog = Test; user id = sa;password=S1806Kh2111";
+                SqlConnection scon = new SqlConnection(conString);
+                scon.Open();
+                string insertSqlCommand = string.Format($"delete Person where {choiceKey} = {key}");
+                SqlCommand command = new SqlCommand(insertSqlCommand, scon);
+                var result = command.ExecuteNonQuery();
+                if (result > 0)
+                {
+                    System.Console.WriteLine("Delete command successfull!!!");
+                }
+            }
         }
     }
 }
