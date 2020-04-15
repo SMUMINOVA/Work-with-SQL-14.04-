@@ -35,6 +35,33 @@ namespace HW_15_04
                     System.Console.WriteLine("Insert command successfull!!!");
                 }
             }
+            
+            public void selectAllSCommand(){
+                const string conString = @"Data source=localhost; Initial catalog = Test; user id = sa;password=S1806Kh2111";
+                SqlConnection scon = new SqlConnection(conString);
+                scon.Open();
+                string commandText = "Select * from Person";
+                SqlCommand command = new SqlCommand(commandText, scon);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    System.Console.WriteLine($"ID:{reader.GetValue("Id")}, FirstName:{reader.GetValue("FirstName")},MiddleName:{reader.GetValue("MiddleName")}, LastName:{reader.GetValue("LastName")}, Date of Birth: {reader.GetValue("BirthDate")}");
+                }
+                reader.Close();
+                }
+            public void selectByIdSCommand(){
+                const string conString = @"Data source=localhost; Initial catalog = Test; user id = sa;password=S1806Kh2111";
+                SqlConnection scon = new SqlConnection(conString);
+                scon.Open();
+                string commandText = $"Select * from Person where id = {Id}";
+                SqlCommand command = new SqlCommand(commandText, scon);
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    System.Console.WriteLine($"ID:{reader.GetValue("Id")}, FirstName:{reader.GetValue("FirstName")},MiddleName:{reader.GetValue("MiddleName")}, LastName:{reader.GetValue("LastName")}, Date of Birth: {reader.GetValue("BirthDate")}");
+                }
+                reader.Close();
+                }
         
         }
     }
